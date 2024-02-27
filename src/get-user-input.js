@@ -3,7 +3,7 @@ import { Manager } from "../lib/Manager.js";
 import { Engineer } from "../lib/Engineer.js";
 import { Intern } from "../lib/Intern.js";
 
-export async function getTeamDetails() { 
+export const getTeamDetails = async () => { 
     const team = [];                   
     let userFinished; 
 
@@ -23,7 +23,7 @@ export async function getTeamDetails() {
     return team
 }
 
-async function getEmployeeRole(){
+const getEmployeeRole = async () => {
     const {teamMemberRole} = await inquirer.prompt({ 
         message: `Please select the role of the Employee you want to add`,
         name: "teamMemberRole",
@@ -33,7 +33,7 @@ async function getEmployeeRole(){
     return teamMemberRole
 }
 
-async function getGenericDetails(role){
+const getGenericDetails = async (role) => {
     const genericDetails = await inquirer.prompt([
         { 
             message: `Please enter the ${role}'s name: `,
@@ -54,7 +54,7 @@ async function getGenericDetails(role){
     return genericDetails
 }
 
-async function getManagerDetails(){
+const getManagerDetails = async () => {
     const genericDetails = await getGenericDetails("manager")
     const managerDetails = await inquirer.prompt([
         {
@@ -67,11 +67,10 @@ async function getManagerDetails(){
     const {name, id, email} = genericDetails
     const {officeNumber} = managerDetails
 
-    const manager = new Manager(name, id, email, officeNumber)
-    return manager
+    return new Manager(name, id, email, officeNumber)
 }
 
-async function getEngineerDetails(){
+const getEngineerDetails = async () => {
     const genericDetails = await getGenericDetails("engineer")
     const engineerDetails = await inquirer.prompt([
         {
@@ -84,11 +83,10 @@ async function getEngineerDetails(){
     const {name, id, email} = genericDetails
     const {github} = engineerDetails
 
-    const engineer = new Engineer(name, id, email, github)
-    return engineer
+    return new Engineer(name, id, email, github)
 }
 
-async function getInternDetails(){
+const getInternDetails = async () => {
     const genericDetails = await getGenericDetails("intern")
     const internDetails = await inquirer.prompt([
         {
@@ -101,11 +99,10 @@ async function getInternDetails(){
     const {name, id, email} = genericDetails
     const {school} = internDetails
 
-    const intern = new Intern(name, id, email, school)
-    return intern
+    return new Intern(name, id, email, school)
 }
 
-async function isUserFinished(){
+const isUserFinished = async () => {
     const { finished } = await inquirer.prompt({ 
         message: `Do you want to Finish building the team`,
         name: "finished",
