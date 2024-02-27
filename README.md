@@ -1,142 +1,109 @@
-# Module 12 Object-Oriented Programming: Team Profile Generator
+# Teamify-JS
+## Transforming Team Management into a Breeze!
 
-## Your Task
+## Description
 
-Your task is to take the given starter code and convert it into a working Node.js command-line application. This application will take in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. You have been provided with tests, so make sure every part of your code passes each provided test.
+Teamify-JS is a Node.js command-line application designed to streamline the process of generating a webpage displaying essential information about a software engineering team 🚀. As a manager or user, you can quickly access your team members' basic details, including their emails and GitHub profiles, through an intuitive interface.
 
-## User Story
+This application simplifies team management by allowing users to input information about team members directly into the command-line interface. Upon submission, the program generates an HTML webpage containing concise summaries for each team member, making it easy to keep track of crucial details at a glance. With comprehensive tests provided, you can trust that every aspect of the code meets high standards of functionality and reliability, ensuring a seamless experience for both managers and team members alike 📊. Streamline your team management process today with Teamify-JS.
 
-As a manager a user want to generate a webpage that displays my team's basic info so that a user have quick access to their emails and GitHub profiles.
+Streamline your team management process today with Teamify-JS. 💼
 
-## Instructions
+Please see a full list of features [here](#features)
 
-* Create a command-line application that accepts accepts user input using the provided starter code.   
-  * Create classes for each team member provided and export them. The tests for these classes (in the `_tests_` directory) must ALL pass.     
-    * The first class is an `Employee` parent class with the following properties and methods:       
-      * `name`
-      * `id`
-      * `email`
-      * `getName()`
-      * `getId()`
-      * `getEmail()`
-      * `getRole()`&mdash;returns `'Employee'`     
-    * The other three classes will extend `Employee`.      
-    * In addition to `Employee`'s properties and methods, `Manager` will also have the following:
-      * `officeNumber`
-      * `getRole()`&mdash;overridden to return `'Manager'`
-    * In addition to `Employee`'s properties and methods, `Engineer` will also have the following:
-      * `github`&mdash;GitHub username
-      * `getGithub()`
-      * `getRole()`&mdash;overridden to return `'Engineer'`
-    * In addition to `Employee`'s properties and methods, `Intern` will also have the following:
-      * `school`
-      * `getSchool()`
-      * `getRole()`&mdash;overridden to return `'Intern'`
-    * Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.   
-  * Write code in `index.js` that uses inquirer to gather information about the development team members and creates objects for each team member using the correct classes as blueprints.
-    * When a user starts the application then they are prompted to enter the **team manager**’s:
-      * Name
-      * Employee ID
-      * Email address
-      * Office number
-    * When a user enters those requirements then the user is presented with a menu with the option to:
-      * Add an engineer
-      * Add an intern 
-      * Finish building the team
-    * When a user selects the **engineer** option then a user is prompted to enter the following and then the user is taken back to the menu:
-      * Engineer's Name
-      * ID
-      * Email
-      * GitHub username
-    * When a user selects the intern option then a user is prompted to enter the following and then the user is taken back to the menu:
-      * Intern’s name
-      * ID
-      * Email
-      * School
-    * When a user decides to finish building their team then they exit the application, and the HTML is generated.
-  * Call the `render` function (provided for you) and pass in an array containing all employee objects; 
-    * The `render` function will generate and return a block of HTML including templated divs for each employee!
-  * Create an HTML file using the HTML returned from the `render` function. 
-    * Write it to a file named `team.html` in the `output` folder. 
-    * You can use the provided variable `outputPath` to target this location.
+## Table of Contents
 
----
+- [Dev Requirements](#dev-requirements)
+- [Dev Environment Setup](#dev-environment-setup)
+- [Enduser usage instructions](#end-user-usage-instructions)
+- [Features](#features)
+- [How to contribute](#how-to-contribute)
+- [technologies ](#technologies)
+- [Screenshot](#screenshot)
+- [Tests](#tests)
+- [Credits](#credits)
+- [License](#license)
 
-## Mock-Up
+## Dev Requirements
+Git/GitBash, VS Code, NodeJS, and the source code, of course! 🛠️
 
-The following image shows a mock-up of the generated HTML’s appearance and functionality:
+## Dev Environment Setup
+Please make sure you have NodeJS downloaded
+To get the development environment running:
+1. Clone this repo
+2. Navagate to the repo on your local machine
+3. run `npm i` and this will install all the depencencys needed
+4. run `node index.js` to run DocuGen-JS!
 
-![HTML webpage titled “My Team” features five boxes listing employee names, titles, and other key info.](./Assets/14-object-oriented-programming-challenge-demo.png)
+- `index.js`: Contains the js code to initialize and run the app
+- `lib/`: Contains all javaScript class files for the employee's
+- `src/`: Contains all javaScript code to allow this app to function
+- `assets/images/`: Contains all images used in the project/readme
+- `assets/css/`: Contains all css styles in the project
 
-The styling in the image is just an example, so feel free to add your own.
+## Enduser usage instructions
+Please make sure you have NodeJS downloaded
 
----
+1. Clone this repo
+2. Navagate to the repo on your local machine
+3. run `npm i` and this will install all the depencencys needed
+4. run `node index.js` to run DocuGen-JS!
 
-## Getting Started
+## Features
+- **Allows you to easily create a webpage that displays all empolyees and their roles**
+- **Allows you to have quick access to their emails and GitHub profiles**
 
-This Challenge will combine many of the skills we've covered so far. In addition to the User Story and Acceptance Criteria, we’ve provided some guidelines to help get started.
+## How to contribute
+1. Fork this repository
+2. Clone the repository
+3. Create a branch for your bug fix or feature
+4. Make necessary changes and commit those changes
+5. Push changes to GitHub
+6. Create a pull request to this repo to submit your changes for review
 
-Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user. The application will be invoked by using the following command:
+## Technologies
+- **JavaScript**
+- **NodeJS**
+- **Inquirer**
+- **Jest**
+- **Bootstrap**
 
-```bash
-node index.js
-```
+## Screenshot
 
----
+The following image shows the application's functionality:
 
-## Hints
+![Screenshott](assets/images/Teamify-JS.png)
 
-* You will want to make your methods as pure as possible. This means try to make your methods simple so that they are easier to test.
+> **Note**: This is a example of the HTML file that this app creates.
 
-* The different employee types should all inherit some methods and properties from a base class of `Employee`.
- 
-* Be sure to test out each class and verify it generates an object with the correct structure and methods. This structure will be crucial in order for the provided `render` function to work!
-  
-* You may need to check if the `output` folder exists and create it if it does not.
+## Tests
+- Run `npm run test` to run the tests
+
+## Credits 
+- **Ross** - Source Code
 
 ---
 
-## Grading Requirements
+## Licence
 
-This Challenge is graded based on the following criteria: 
+MIT License
 
-### Deliverables: 25%
+Copyright (c) 2024 RossNE99
 
-* A sample HTML file generated using the application must be submitted.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-* Your GitHub repository containing your application code.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-### Technical Acceptance Criteria: 50%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-	* Uses the [Inquirer package](https://www.npmjs.com/package/inquirer).
-
-	* All tests pass using the [Jest package](https://www.npmjs.com/package/jest).
-
-  * The application must have `Employee`, `Manager`, `Engineer`, and `Intern` classes.
-
-### Repository Quality: 25%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality readme with description.
-
----
-
-## Review
-
-You are required to submit the following for review:
-
-* A sample HTML file generated using your application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
