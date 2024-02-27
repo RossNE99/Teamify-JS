@@ -1,24 +1,24 @@
-
-import fs from "fs"; //imports
-import constants from 'node:fs';
+import { promises as fsPromises, constants } from "fs"; //imports
 
 const checkIfFolderExists = async (dir) => {    //function to check if the output folder exists, if it doenst then create it
-    fs.access(dir, constants.F_OK, (err) => {   // Check if the output directory exists
-        if(err){    //if it donest exist then creaate
-            fs.mkdir(dir, { recursive: true }, (err) => {   // If the directory doesn't exist, create it
-                if (err) throw err; //if cant create the folder then throw error
-            }); 
+    try {
+        await fsPromises.access(dir, constants.F_OK); // Check if the output directory exists
+    } catch (err) {
+        if (err.code === 'ENOENT') { // If the directory doesn't exist, create it
+            await fsPromises.mkdir(dir, { recursive: true });
+        } else {
+            throw err; // If there's an error other than the directory not existing, rethrow it
         }
-    });    
+    }  
 }
 
 export const writeToFile = async (path, outputDir, data) => {   //function to Save HTML file in output folder
-    await checkIfFolderExists(outputDir)   //call function to check if build folder already exists
-    fs.writeFile(path, data, (err) => { //save the file to the fs
-        if (err) {  //if there was an error then console log the error
-            console.error('Error writing to file:', err);
-        } else {    //if everything went ok then console log Success
-            console.log(`Successfully wrote ${path} file`);
-        }
-    })
+    await checkIfFolderExists(outputDir); // Call function to check if output folder exists
+
+    try {
+        await fsPromises.writeFile(path, data); // Save the file to the filesystem
+        console.log(`Successfully wrote ${path} file`);
+    } catch (err) {  //if there is an error saving the file console log it
+        console.error('Error writing to file:', err);
+    }
 }
