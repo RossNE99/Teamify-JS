@@ -1,4 +1,4 @@
-import {getEmployeeDetails} from "./src/get-user-input.js"
+import {getTeamDetails} from "./src/get-user-input.js"
 import path from "path";
 import fs from "fs";
 
@@ -10,7 +10,7 @@ import fs from "fs";
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
-const team = await getEmployeeDetails()
+const team = await getTeamDetails()
 
 //testing
 console.log(team)

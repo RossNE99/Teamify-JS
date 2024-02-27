@@ -3,7 +3,7 @@ import { Manager } from "../lib/Manager.js";
 import { Engineer } from "../lib/Engineer.js";
 import { Intern } from "../lib/Intern.js";
 
-export async function getEmployeeDetails() { 
+export async function getTeamDetails() { 
     const team = [];                   
     let userFinished; 
 
